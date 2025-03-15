@@ -1,6 +1,10 @@
 # Author Box for Astro
 
-This project provides an **Author Box** component for Astro, designed to automatically display author information for blog posts. The component fetches author data based on the `author` field in your Markdown post's frontmatter and displays it in a custom box on your site.
+This project provides an **Author Box** component for Astro, designed to automatically display author information for blog posts. The component fetches author data based on the `author` field in your Markdown post's frontmatter and displays it in a custom box on your site. 
+
+## SEO Friendly
+
+This component is SEO friendly, I have added the "person" schema to enhance the EEAT "Experience, Expertise, Authoritativeness and Trustworthiness".
 
 ## Features
 

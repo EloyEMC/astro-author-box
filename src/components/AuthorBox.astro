@@ -5,32 +5,49 @@ const { author } = Astro.props;
 const authorData = authors[author] || null;
 ---
 
-{
-    authorData && (
-        <section class="author-box border-2 rounded-lg p-6 flex gap-8 bg-neutral-900 text-white">
-            <img
-                src={authorData.image}
-                alt={authorData.name}
-                class="author-img rounded-full w-24 h-24 object-cover"
-                loading="lazy"
-                decoding="async"
-                
-            />
-            <div class="author-info">
-                <h3 class="text-xl font-semibold">{authorData.name}</h3>
-                <p class="text-sm text-gray-400">{authorData.bio}</p>
-                <div class="social-links mt-4 flex gap-3">
-                    {Object.entries(authorData.social).map(([network, url]) => (
-                        <a
-                            href={String(url)}
-                            class="text-blue-400 hover:text-blue-500 capitalize"
-                            target="_blank"
-                        >
-                            {network}
-                        </a>
-                    ))}
-                </div>
-            </div>
-        </section>
-    )
-}
+{authorData && (
+  <>
+    <!-- JSON-LD Microdata for SEO -->
+    <script type="application/ld+json">
+      {{
+        "@context": "http://schema.org",
+        "@type": "Person",
+        "name": authorData.name,
+        "url": authorData.social.website || "#", 
+        "image": authorData.image,
+        "sameAs": [
+          authorData.social.twitter,
+          authorData.social.github,
+          authorData.social.linkedin,
+          authorData.social.youtube
+        ],
+        "description": authorData.bio
+      }}
+    </script>
+
+    <section class="author-box border-2 rounded-lg p-6 flex gap-8 bg-neutral-900 text-white">
+      <img
+        src={authorData.image}
+        alt={authorData.name}
+        class="author-img rounded-full w-24 h-24 object-cover"
+        loading="lazy"
+        decoding="async"
+      />
+      <div class="author-info">
+        <h3 class="text-xl font-semibold">{authorData.name}</h3>
+        <p class="text-sm text-gray-400">{authorData.bio}</p>
+        <div class="social-links mt-4 flex gap-3">
+          {Object.entries(authorData.social).map(([network, url]) => (
+            <a
+              href={String(url)}
+              class="text-blue-400 hover:text-blue-500 capitalize"
+              target="_blank"
+            >
+              {network}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  </>
+)}
