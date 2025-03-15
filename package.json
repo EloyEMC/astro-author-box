@@ -1,0 +1,14 @@
+{
+    "name": "astro-author-box",
+    "version": "1.0.0",
+    "description": "A component to add author boxes in Astro.",
+    "main": "src/components/AuthorBox.astro",
+    "exports": {
+      "./components/AuthorBox.astro": "./src/components/AuthorBox.astro",
+      "./data/authors.js": "./src/data/authors.js"
+    },
+    "keywords": ["astro", "author box", "component"],
+    "author": "Eloy Martínez Cuesta",
+    "license": "MIT"
+  }
+  

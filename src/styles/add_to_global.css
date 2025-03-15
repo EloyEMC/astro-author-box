@@ -1,0 +1,39 @@
+/* Add to global.css */
+
+.author-box {
+	display: flex;
+	align-items: center;
+	background-color: #1a1a1a;
+	border-radius: 0.75rem;
+	padding: 1.5rem;
+	max-width: 100%;
+}
+
+.author-img {
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	object-fit: cover;
+	border: 3px solid #fff;
+}
+
+.author-info h3 {
+	font-size: 1.25rem;
+	font-weight: bold;
+}
+
+.author-info p {
+	color: #d1d5db;
+	margin-top: 0.5rem;
+
+
+	.social-links a {
+		text-decoration: none;
+		margin-right: 0.5rem;
+		color: #58a6ff;
+	}
+
+	.social-links a:hover {
+		text-decoration: underline;
+	}
+}
